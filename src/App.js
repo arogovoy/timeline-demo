@@ -122,7 +122,7 @@ class App extends React.Component {
         <Resource
           fieldExpr="productionSite"
           allowMultiple={false}
-          dataSource={productionSiteData2}
+          dataSource={productionSiteData}
           label="ProductionSite"
         />
         <Editing allowResizing={false} />
