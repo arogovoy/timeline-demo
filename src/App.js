@@ -15,17 +15,44 @@ const views = [
     type: "timelineDay",
     name: "По 15min протягом дня",
     cellDuration: 15,
-    __columnWidth: 65
-
-    // intervalCount: 1
+    __columnWidth: 65,
+    __rowHeight: 50,
   },
   {
     type: "timelineWorkWeek",
     name: "По 2h весь робочий тиждень",
     cellDuration: 120,
-    __columnWidth: 130
-    // intervalCount: 1
-  }
+    __columnWidth: 130,
+    __rowHeight: 50,
+  },
+  {
+    type: "timelineWorkWeek",
+    name: "30",
+    cellDuration: 120,
+    __columnWidth: 130,
+    __rowHeight: 30,
+  },
+  {
+    type: "timelineWorkWeek",
+    name: "70",
+    cellDuration: 120,
+    __columnWidth: 130,
+    __rowHeight: 70,
+  },
+  {
+    type: "timelineWorkWeek",
+    name: "40",
+    cellDuration: 120,
+    __columnWidth: 130,
+    __rowHeight: 40,
+  },
+  {
+    type: "timelineWorkWeek",
+    name: "150",
+    cellDuration: 120,
+    __columnWidth: 130,
+    __rowHeight: 150,
+  },
 ];
 const groups = ["productionSite"];
 
@@ -38,8 +65,8 @@ const renderTimeCell = (itemData) => <TimeCell itemData={itemData} />;
 class App extends React.Component {
   state = {
     elementAttr: {
-      style: "--scheduler-column-width: 65px;"
-    }
+      style: `--scheduler-column-width: ${views[0].__columnWidth}px;--scheduler-row-height: ${views[0].__rowHeight}px`,
+    },
   };
 
   updateColumnWidth = (component, view) => {
@@ -47,8 +74,8 @@ class App extends React.Component {
     this.setState(
       {
         elementAttr: {
-          style: `--scheduler-column-width: ${newView.__columnWidth}px;`
-        }
+          style: `--scheduler-column-width: ${newView.__columnWidth}px;--scheduler-row-height: ${newView.__rowHeight}px`,
+        },
       },
       () => {
         component.repaint();
@@ -84,6 +111,7 @@ class App extends React.Component {
         cellDuration={60}
         firstDayOfWeek={0}
         maxAppointmentsPerCell={"unlimit"}
+        // maxAppointmentsPerCell={3}
         startDayHour={8}
         endDayHour={20}
         dataCellRender={renderDataCell}
