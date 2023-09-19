@@ -76,22 +76,23 @@ td.dx-scheduler-time-panel-cell .dinner .cafe {
     width: var(--scheduler-column-width, 200px) !important;
 }
 
-.dx-scheduler-date-table {
-    /*height: 100% !important;*/
+.dx-scheduler-date-table-container table {
+    border-spacing: 0;
 }
 
-
-.dx-scheduler-cell-sizes-vertical {
+.dx-scheduler-date-table-row {
+    flex: 0 0 auto !important;
     height: var(--scheduler-row-height) !important;
     min-height: var(--scheduler-row-height) !important;
 }
 
-.dx-scheduler-date-table-row:not(:last-child) {
-    flex: 0 0 auto !important;
+.dx-scheduler-date-table-row:not(:last-child) .dx-scheduler-cell-sizes-vertical {
+    height: var(--scheduler-row-height) !important;
+    min-height: var(--scheduler-row-height) !important;
 }
 
 .dx-scheduler-date-table-row:last-child {
-    flex: 1 1 auto !important;
+    flex: 1 0 0 !important;
 }
 
 .dx-scheduler-date-table-row:last-child .dx-scheduler-cell-sizes-vertical {
@@ -102,7 +103,7 @@ td.dx-scheduler-time-panel-cell .dinner .cafe {
 .dx-scheduler-group-header:not(:last-child) {
     height: var(--scheduler-row-height) !important;
     min-height: var(--scheduler-row-height) !important;
-    flex: 0 1 auto !important;
+    flex: 1 1 auto !important;
 }
 
 .dx-scheduler-group-header-content {
